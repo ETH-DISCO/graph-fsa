@@ -1,0 +1,38 @@
+We ran the experiments with different model seeds to get the results for our paper (seed = 0 to 15). In addition, 
+you might need to install our fsm_dataset package in graph-generator/fsm_dataset by calling pip install -e . in this directory. 
+
+To reproduce our results, we have two training files. 
+
+For GraphFSA we have train_graphfsa.py
+
+To get the correct experiments, please adjust 
+
+    # details about fsm to generate
+    starting_states = [2,3]
+    final_states = [0,1]
+    num_states = 4
+
+and change the graph type in 
+
+dataset = dataset_generator.FSMDataset("datasets/fsm_dataset/", dataset_generator.GRAPH_TYPE.TREE, num_states, starting_states, final_states, seed=params["seed"], sparse=False)
+
+The exact experiment setup can be found in the supplementary material. You have to call 
+
+python3 train_graphfsa.py --seed (x)
+
+where x is the seed of the different experiments. In addition, you can choose the different states of the GraphFSA model by passing --states (y) where y is the number of states. 
+
+A complete example for seed 1 with 6 states 
+
+python3 train_graphfsa.py --seed 1 --states 6
+
+
+For the other baselines, we have train_baseline.py
+
+You can adjust the model architecture by adjusting MODEL_NAME in the beginning of the code. Similar to before, you can change the generated dataset by adjusting
+
+starting_states = [3,4]
+final_states = [0, 1]
+num_states = 4
+
+in the code. You can set the seed by passing --seed (x), where x is the seed number to it. 

@@ -1,0 +1,50 @@
+We ran the experiments with different model seeds to get the results for our paper (seed = 40 to 60). In addition, 
+we have two problem instances: 1D CA problems and Game Of Life. 
+
+1D CA Problem 
+
+For the 1D CA problem, you have to call. 
+
+python3 train-1dca.py --seed (x)
+
+In addition, you have to modify the model architecture depending on which model you want to train. You can do that by  
+changing the argument for model_architecture at the beginning of the code. 
+
+We support  "graphfsa", "recgnn", "gnca", "graphchef". 
+
+For GraphFSA, you have to additionally set the learning rate to 0.1 . 
+
+An example call for GraphFSA is 
+
+python3 train-1dca.py --seed 40 --learning_rate 0.1
+
+to choose the 1D CA RULE and the number of steps used for training data you can change 
+
+RULE = 
+STEPS = 
+in the beginning of the 1D CA training file. 
+
+Game Of Life Problem
+
+For the GOL problem, you have to call. 
+
+python3 train-gol.py --seed (x)
+
+In addition, you have to modify the model architecture depending on which model you want to train. You can do that by  
+changing the argument for model_architecture at the beginning of the code. 
+
+We support  "graphfsa", "recgnn", "gnca", "graphchef". 
+
+For GraphFSA, you have to additionally set the learning rate to 0.1. 
+
+An example call for GraphFSA is 
+
+python3 train-1dca.py --seed 40 --learning_rate 0.1
+
+To choose TOROIDAL/NON-TOROIDAL, Training Grid size, and the number of steps used for training data, you can change 
+
+TOROIDAL = 
+GRID_SIZE = 
+STEPS = 
+
+

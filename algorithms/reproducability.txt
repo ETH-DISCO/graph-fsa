@@ -1,0 +1,36 @@
+We ran the experiments with different model seeds to get the results for our paper (seed = 40 to 60). For the GraphFSA model you have to call 
+
+python3 train.py --seed (x)
+
+In addition, we have different datasets 
+
+- Distance
+- PrefixSum
+- RootValue
+- PathFinding
+
+the respective dataset can be passed in with the --dataset command. 
+
+For example 
+
+python3 train.py --seed 40 --dataset Distance.
+
+
+For the baseline models you have to use 
+
+python3 train_baselines.py
+
+before calling it you need to specify which baseline model will be trained. In the
+beginning of the python script you have to set 
+
+model_architecture = "gnca"
+
+the three options are ["gnca", "graphchef", "recgnn"]
+
+An example call is 
+
+python3 train_baselines.py --seed 50 --dataset Distance 
+
+For RecGNN you need to additionally set the learning rate to 0.001 for good result. 
+
+python3 train_baselines.py --seed 50 --dataset Distance --learning_rate 0.001
